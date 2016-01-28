@@ -9,7 +9,7 @@ docker pull ubuntu
 
 # building:
 docker build -t docker-metfrag .
-docker run --publish=8890:8080 --volume=/vol:/vol:rw --name docker-metfrag-run -i -t docker-metfrag
+docker run --publish=8890:8080 --log-driver=syslog --name docker-metfrag-run -i -t -d docker-metfrag
 
 # manually:
 #docker run -P -i -t --name=docker-metfrag ubuntu /bin/bash
