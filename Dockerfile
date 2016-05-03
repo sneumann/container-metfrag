@@ -32,7 +32,7 @@ ADD settings.properties MetFragWeb/src/main/webapp/resources/settings.properties
 # Compile MetFrag
 WORKDIR /usr/src/MetFragRelaunched
 RUN mvn clean install -pl MetFragLib -am -DskipTests
-RUN mvn clean -Dcontainer=tomcat7 tomcat:run-war -pl MetFragWeb -am -DskipTests" > /usr/src/MetFragRelaunched/start.sh
+RUN echo "mvn clean -Dcontainer=tomcat7 tomcat:run-war -pl MetFragWeb -am -DskipTests" > /usr/src/MetFragRelaunched/start.sh
 RUN chmod +x /usr/src/MetFragRelaunched/start.sh
 
 # Expose port to outside
