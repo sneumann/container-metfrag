@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name
-NAME="metfrag"
+NAME="korseby/metfrag"
 
 # CPU options
 #CPU_SHARES="--cpu-shares=8"
