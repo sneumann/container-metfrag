@@ -1,5 +1,7 @@
 # MetFrag Docker
 
+MetFrag is a tool for in-silico fragmentation for computer assisted identification of metabolite mass spectra.
+
 ## Building the Docker image
 
 Building the docker file generally is not needed. You can pull it from the official dockerhub registry:

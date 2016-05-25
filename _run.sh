@@ -19,12 +19,12 @@ PORT_PUB=9003
 PORT_DOCKER=8080
 
 # Volumes
-VOL="--volume=settings.properties:/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/settings.properties:ro"
+VOL="-v $PWD/settings.properties:/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/settings.properties"
 
 
 
 # Run docker
-docker run --publish=${PORT_PUB}:${PORT_DOCKER} --log-driver=syslog $VOL $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --name="$(echo ${NAME} | sed -e 's/.*\///')-run" -i -t -d $NAME
+docker run -i -t -d -p ${PORT_PUB}:${PORT_DOCKER} $VOL $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --name="$(echo ${NAME} | sed -e 's/.*\///')-run" $NAME
 
 
 

@@ -13,13 +13,13 @@ spec:
       - name: metfrag
         image: korseby/metfrag
         volumeMounts:
-          - name: metfrag-tmp
-            mountPath: "/tmp"
+          - name: metfrag-settings
+            mountPath: "/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/settings.properties"
             readOnly: false
         ports:
         - containerPort: 8080
       volumes:
-        - name: metfrag-tmp
+        - name: metfrag-settings
           hostPath:
-            path: "/tmp"
+            path: "/vol/phenomenal/github-korseby/docker-metfrag/settings.properties"
 

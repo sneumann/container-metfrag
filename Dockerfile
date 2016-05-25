@@ -2,7 +2,7 @@ FROM ubuntu:trusty
 
 MAINTAINER Kristian Peters <kpeters@ipb-halle.de>
 
-LABEL Description="Install MetFrag in Docker."
+LABEL Description="MetFrag is a tool for in-silico fragmentation for computer assisted identification of metabolite mass spectra."
 
 # Add cran R backport
 RUN apt-get -y update
