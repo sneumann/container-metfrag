@@ -30,9 +30,6 @@ RUN rm -rf /var/lib/tomcat7/webapps/*
 WORKDIR /usr/src
 RUN git clone https://github.com/c-ruttkies/MetFragRelaunched
 
-# Add settings
-ADD settings.properties MetFragWeb/src/main/webapp/resources/settings.properties
-
 # Compile MetFrag
 WORKDIR /usr/src/MetFragRelaunched
 RUN mvn clean install -pl MetFragLib -am -DskipTests
@@ -40,8 +37,7 @@ RUN mvn package -pl MetFragWeb
 
 # Prepare start
 RUN cp -r MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/ROOT.war
-RUN echo "service tomcat7 start" >> /usr/src/MetFragRelaunched/start.sh
-#RUN echo "mvn tomcat7:run-war-only -pl MetFragWeb" >> /usr/src/MetFragRelaunched/start.sh
+RUN echo "mvn tomcat7:run-war-only -pl MetFragWeb" >> /usr/src/MetFragRelaunched/start.sh
 RUN chmod +x /usr/src/MetFragRelaunched/start.sh
 
 # Expose port to outside

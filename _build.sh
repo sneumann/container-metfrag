@@ -15,5 +15,5 @@ NAME="korseby/metfrag"
 cp /vol/metfragweb/settings.properties .
 
 # Build docker
-docker build --rm=true $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --tag=$NAME .
+docker build --no-cache --rm=true $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --tag=$NAME .
 

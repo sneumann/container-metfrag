@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: metfrag-rc
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: metfrag
+    spec:
+      containers:
+      - name: metfrag
+        image: korseby/metfrag
+        volumeMounts:
+          - name: metfrag-tmp
+            mountPath: "/tmp"
+            readOnly: false
+        ports:
+        - containerPort: 8080
+      volumes:
+        - name: metfrag-tmp
+          hostPath:
+            path: "/tmp"
+

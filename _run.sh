@@ -19,7 +19,7 @@ PORT_PUB=9003
 PORT_DOCKER=8080
 
 # Volumes
-#VOL="--volume=/vol/R/shiny/srv/shiny-server/MetFam:/vol/R/shiny/srv/shiny-server/MetFam:ro"
+VOL="--volume=settings.properties:/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/settings.properties:ro"
 
 
 
