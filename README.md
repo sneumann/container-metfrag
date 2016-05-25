@@ -4,8 +4,8 @@
 
 Building the docker file generally is not needed. You can pull it from the official dockerhub registry:
 
-`docker search metfrag
-docker pull korseby/metfrag`
+`docker search metfrag`
+`docker pull korseby/metfrag`
 
 ## Using the Docker image
 
