@@ -36,6 +36,8 @@ RUN mvn clean install -pl MetFragLib -am -DskipTests
 RUN mvn package -pl MetFragWeb
 
 # Tomcat needs write permissions
+RUN mkdir /tmp/tomcat7
+RUN chown -R tomcat7:tomcat7 /tmp/tomcat7
 RUN chown -R tomcat7:tomcat7 /var/lib/tomcat7
 RUN chown -R tomcat7:tomcat7 /usr/share/tomcat7/
 
