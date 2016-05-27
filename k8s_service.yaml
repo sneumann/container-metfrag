@@ -14,7 +14,7 @@ spec:
     protocol: TCP
   sessionAffinity: ClientIP
   clusterIP: 10.0.0.101
-  loadBalancerIP: 192.168.0.175
+  #loadBalancerIP: 192.168.0.175
   externalIPs: [ "192.168.0.175" ]
   type: LoadBalancer
 
