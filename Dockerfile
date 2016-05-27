@@ -30,7 +30,7 @@ RUN rm -rf /var/lib/tomcat7/webapps/*
 WORKDIR /usr/src
 RUN git clone https://github.com/c-ruttkies/MetFragRelaunched
 
-# Compile MetFrag
+# Build MetFrag
 WORKDIR /usr/src/MetFragRelaunched
 RUN mvn clean install -pl MetFragLib -am -DskipTests
 RUN mvn package -pl MetFragWeb
