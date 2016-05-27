@@ -35,14 +35,12 @@ WORKDIR /usr/src/MetFragRelaunched
 RUN mvn clean install -pl MetFragLib -am -DskipTests
 RUN mvn package -pl MetFragWeb
 
-# Prepare start
-RUN cp -r MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/ROOT.war
-RUN echo "mvn tomcat7:run-war-only -pl MetFragWeb" >> /usr/src/MetFragRelaunched/start.sh
-RUN chmod +x /usr/src/MetFragRelaunched/start.sh
+# Run as user tomcat7
+USER tomcat7
 
 # Expose port to outside
 EXPOSE 8080
 
 # Define Entry point script
-ENTRYPOINT ["/bin/sh","/usr/src/MetFragRelaunched/start.sh"]
+ENTRYPOINT ["/bin/sh","/start.sh"]
 
