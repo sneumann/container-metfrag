@@ -24,7 +24,7 @@ fi
 
 # Create hosts
 for ((i=2;i<=99;i++)); do
-  echo "10.38.38.$i metfrag$i dockermetfrag_metfrag_$i" >> /etc/hosts
+  echo "10.80.80.$i metfrag$i dockermetfrag_metfrag_$i" >> /etc/hosts
 done
 
 exec haproxy -f /etc/haproxy/haproxy.cfg -p "$PIDFILE"

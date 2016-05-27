@@ -1,4 +1,8 @@
 #!/bin/sh
 
-docker-compose up -d
+# Copy local settings file to project
+cp /vol/metfragweb/settings.properties .
+
+# Bring up docker containers
+docker-compose -f docker-compose.yaml up -d
 

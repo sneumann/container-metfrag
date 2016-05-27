@@ -11,9 +11,8 @@ NAME="korseby/metfrag"
 
 
 
-# Copy local settings file to project
-cp /vol/metfragweb/settings.properties .
-
 # Build docker
 docker build --no-cache --rm=true $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --tag=$NAME .
 
+# Push image to docker hub
+docker push $NAME

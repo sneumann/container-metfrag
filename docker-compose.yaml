@@ -1,23 +1,13 @@
 version: '2'
 
 services:
-  metfrag:
-    image: korseby/metfrag
-    networks:
-    - metfrag_net
-    volumes:
-    - $PWD/settings.properties:/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/settings.properties
-    expose:
-    - 8080
-
   haproxy:
     container_name: metfrag_haproxy
     build:
       context: ./metfrag-haproxy
       dockerfile: Dockerfile
     networks:
-      metfrag_net:
-        ipv4_address: 10.80.80.1
+    - metfrag_net
     volumes:
     - ./metfrag-haproxy:/haproxy-override
     links:
@@ -29,6 +19,15 @@ services:
     - "80"
     - "70"
 
+  metfrag:
+    image: korseby/metfrag
+    networks:
+    - metfrag_net
+    volumes:
+    - $PWD/settings.properties:/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/settings.properties
+    expose:
+    - 8080
+
 networks:
   metfrag_net:
     driver: bridge
@@ -37,258 +36,3 @@ networks:
       - subnet: 10.80.80.0/24
         ip_range: 10.80.80.0/24
         gateway: 10.80.80.1
-        aux_addresses:
-          metfrag1: 10.80.80.1
-          metfrag2: 10.80.80.2
-          metfrag3: 10.80.80.3
-          metfrag4: 10.80.80.4
-          metfrag5: 10.80.80.5
-          metfrag6: 10.80.80.6
-          metfrag7: 10.80.80.7
-          metfrag8: 10.80.80.8
-          metfrag9: 10.80.80.9
-          metfrag10: 10.80.80.10
-          metfrag11: 10.80.80.11
-          metfrag12: 10.80.80.12
-          metfrag13: 10.80.80.13
-          metfrag14: 10.80.80.14
-          metfrag15: 10.80.80.15
-          metfrag16: 10.80.80.16
-          metfrag17: 10.80.80.17
-          metfrag18: 10.80.80.18
-          metfrag19: 10.80.80.19
-          metfrag20: 10.80.80.20
-          metfrag21: 10.80.80.21
-          metfrag22: 10.80.80.22
-          metfrag23: 10.80.80.23
-          metfrag24: 10.80.80.24
-          metfrag25: 10.80.80.25
-          metfrag26: 10.80.80.26
-          metfrag27: 10.80.80.27
-          metfrag28: 10.80.80.28
-          metfrag29: 10.80.80.29
-          metfrag30: 10.80.80.30
-          metfrag31: 10.80.80.31
-          metfrag32: 10.80.80.32
-          metfrag33: 10.80.80.33
-          metfrag34: 10.80.80.34
-          metfrag35: 10.80.80.35
-          metfrag36: 10.80.80.36
-          metfrag37: 10.80.80.37
-          metfrag38: 10.80.80.38
-          metfrag39: 10.80.80.39
-          metfrag40: 10.80.80.40
-          metfrag41: 10.80.80.41
-          metfrag42: 10.80.80.42
-          metfrag43: 10.80.80.43
-          metfrag44: 10.80.80.44
-          metfrag45: 10.80.80.45
-          metfrag46: 10.80.80.46
-          metfrag47: 10.80.80.47
-          metfrag48: 10.80.80.48
-          metfrag49: 10.80.80.49
-          metfrag50: 10.80.80.50
-          metfrag51: 10.80.80.51
-          metfrag52: 10.80.80.52
-          metfrag53: 10.80.80.53
-          metfrag54: 10.80.80.54
-          metfrag55: 10.80.80.55
-          metfrag56: 10.80.80.56
-          metfrag57: 10.80.80.57
-          metfrag58: 10.80.80.58
-          metfrag59: 10.80.80.59
-          metfrag60: 10.80.80.60
-          metfrag61: 10.80.80.61
-          metfrag62: 10.80.80.62
-          metfrag63: 10.80.80.63
-          metfrag64: 10.80.80.64
-          metfrag65: 10.80.80.65
-          metfrag66: 10.80.80.66
-          metfrag67: 10.80.80.67
-          metfrag68: 10.80.80.68
-          metfrag69: 10.80.80.69
-          metfrag70: 10.80.80.70
-          metfrag71: 10.80.80.71
-          metfrag72: 10.80.80.72
-          metfrag73: 10.80.80.73
-          metfrag74: 10.80.80.74
-          metfrag75: 10.80.80.75
-          metfrag76: 10.80.80.76
-          metfrag77: 10.80.80.77
-          metfrag78: 10.80.80.78
-          metfrag79: 10.80.80.79
-          metfrag80: 10.80.80.80
-          metfrag81: 10.80.80.81
-          metfrag82: 10.80.80.82
-          metfrag83: 10.80.80.83
-          metfrag84: 10.80.80.84
-          metfrag85: 10.80.80.85
-          metfrag86: 10.80.80.86
-          metfrag87: 10.80.80.87
-          metfrag88: 10.80.80.88
-          metfrag89: 10.80.80.89
-          metfrag90: 10.80.80.90
-          metfrag91: 10.80.80.91
-          metfrag92: 10.80.80.92
-          metfrag93: 10.80.80.93
-          metfrag94: 10.80.80.94
-          metfrag95: 10.80.80.95
-          metfrag96: 10.80.80.96
-          metfrag97: 10.80.80.97
-          metfrag98: 10.80.80.98
-          metfrag99: 10.80.80.99
-          metfrag100: 10.80.80.100
-          metfrag101: 10.80.80.101
-          metfrag102: 10.80.80.102
-          metfrag103: 10.80.80.103
-          metfrag104: 10.80.80.104
-          metfrag105: 10.80.80.105
-          metfrag106: 10.80.80.106
-          metfrag107: 10.80.80.107
-          metfrag108: 10.80.80.108
-          metfrag109: 10.80.80.109
-          metfrag110: 10.80.80.110
-          metfrag111: 10.80.80.111
-          metfrag112: 10.80.80.112
-          metfrag113: 10.80.80.113
-          metfrag114: 10.80.80.114
-          metfrag115: 10.80.80.115
-          metfrag116: 10.80.80.116
-          metfrag117: 10.80.80.117
-          metfrag118: 10.80.80.118
-          metfrag119: 10.80.80.119
-          metfrag120: 10.80.80.120
-          metfrag121: 10.80.80.121
-          metfrag122: 10.80.80.122
-          metfrag123: 10.80.80.123
-          metfrag124: 10.80.80.124
-          metfrag125: 10.80.80.125
-          metfrag126: 10.80.80.126
-          metfrag127: 10.80.80.127
-          metfrag128: 10.80.80.128
-          metfrag129: 10.80.80.129
-          metfrag130: 10.80.80.130
-          metfrag131: 10.80.80.131
-          metfrag132: 10.80.80.132
-          metfrag133: 10.80.80.133
-          metfrag134: 10.80.80.134
-          metfrag135: 10.80.80.135
-          metfrag136: 10.80.80.136
-          metfrag137: 10.80.80.137
-          metfrag138: 10.80.80.138
-          metfrag139: 10.80.80.139
-          metfrag140: 10.80.80.140
-          metfrag141: 10.80.80.141
-          metfrag142: 10.80.80.142
-          metfrag143: 10.80.80.143
-          metfrag144: 10.80.80.144
-          metfrag145: 10.80.80.145
-          metfrag146: 10.80.80.146
-          metfrag147: 10.80.80.147
-          metfrag148: 10.80.80.148
-          metfrag149: 10.80.80.149
-          metfrag150: 10.80.80.150
-          metfrag151: 10.80.80.151
-          metfrag152: 10.80.80.152
-          metfrag153: 10.80.80.153
-          metfrag154: 10.80.80.154
-          metfrag155: 10.80.80.155
-          metfrag156: 10.80.80.156
-          metfrag157: 10.80.80.157
-          metfrag158: 10.80.80.158
-          metfrag159: 10.80.80.159
-          metfrag160: 10.80.80.160
-          metfrag161: 10.80.80.161
-          metfrag162: 10.80.80.162
-          metfrag163: 10.80.80.163
-          metfrag164: 10.80.80.164
-          metfrag165: 10.80.80.165
-          metfrag166: 10.80.80.166
-          metfrag167: 10.80.80.167
-          metfrag168: 10.80.80.168
-          metfrag169: 10.80.80.169
-          metfrag170: 10.80.80.170
-          metfrag171: 10.80.80.171
-          metfrag172: 10.80.80.172
-          metfrag173: 10.80.80.173
-          metfrag174: 10.80.80.174
-          metfrag175: 10.80.80.175
-          metfrag176: 10.80.80.176
-          metfrag177: 10.80.80.177
-          metfrag178: 10.80.80.178
-          metfrag179: 10.80.80.179
-          metfrag180: 10.80.80.180
-          metfrag181: 10.80.80.181
-          metfrag182: 10.80.80.182
-          metfrag183: 10.80.80.183
-          metfrag184: 10.80.80.184
-          metfrag185: 10.80.80.185
-          metfrag186: 10.80.80.186
-          metfrag187: 10.80.80.187
-          metfrag188: 10.80.80.188
-          metfrag189: 10.80.80.189
-          metfrag190: 10.80.80.190
-          metfrag191: 10.80.80.191
-          metfrag192: 10.80.80.192
-          metfrag193: 10.80.80.193
-          metfrag194: 10.80.80.194
-          metfrag195: 10.80.80.195
-          metfrag196: 10.80.80.196
-          metfrag197: 10.80.80.197
-          metfrag198: 10.80.80.198
-          metfrag199: 10.80.80.199
-          metfrag200: 10.80.80.200
-          metfrag201: 10.80.80.201
-          metfrag202: 10.80.80.202
-          metfrag203: 10.80.80.203
-          metfrag204: 10.80.80.204
-          metfrag205: 10.80.80.205
-          metfrag206: 10.80.80.206
-          metfrag207: 10.80.80.207
-          metfrag208: 10.80.80.208
-          metfrag209: 10.80.80.209
-          metfrag210: 10.80.80.210
-          metfrag211: 10.80.80.211
-          metfrag212: 10.80.80.212
-          metfrag213: 10.80.80.213
-          metfrag214: 10.80.80.214
-          metfrag215: 10.80.80.215
-          metfrag216: 10.80.80.216
-          metfrag217: 10.80.80.217
-          metfrag218: 10.80.80.218
-          metfrag219: 10.80.80.219
-          metfrag220: 10.80.80.220
-          metfrag221: 10.80.80.221
-          metfrag222: 10.80.80.222
-          metfrag223: 10.80.80.223
-          metfrag224: 10.80.80.224
-          metfrag225: 10.80.80.225
-          metfrag226: 10.80.80.226
-          metfrag227: 10.80.80.227
-          metfrag228: 10.80.80.228
-          metfrag229: 10.80.80.229
-          metfrag230: 10.80.80.230
-          metfrag231: 10.80.80.231
-          metfrag232: 10.80.80.232
-          metfrag233: 10.80.80.233
-          metfrag234: 10.80.80.234
-          metfrag235: 10.80.80.235
-          metfrag236: 10.80.80.236
-          metfrag237: 10.80.80.237
-          metfrag238: 10.80.80.238
-          metfrag239: 10.80.80.239
-          metfrag240: 10.80.80.240
-          metfrag241: 10.80.80.241
-          metfrag242: 10.80.80.242
-          metfrag243: 10.80.80.243
-          metfrag244: 10.80.80.244
-          metfrag245: 10.80.80.245
-          metfrag246: 10.80.80.246
-          metfrag247: 10.80.80.247
-          metfrag248: 10.80.80.248
-          metfrag249: 10.80.80.249
-          metfrag250: 10.80.80.250
-          metfrag251: 10.80.80.251
-          metfrag252: 10.80.80.252
-          metfrag253: 10.80.80.253
-          metfrag254: 10.80.80.254
