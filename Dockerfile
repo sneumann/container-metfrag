@@ -34,7 +34,10 @@ RUN git clone https://github.com/c-ruttkies/MetFragRelaunched
 WORKDIR /usr/src/MetFragRelaunched
 RUN mvn clean install -pl MetFragLib -am -DskipTests
 RUN mvn package -pl MetFragWeb
+
+# Tomcat needs write permissions
 RUN chown -R tomcat7:tomcat7 /var/lib/tomcat7
+RUN chown -R tomcat7:tomcat7 /usr/share/tomcat7/
 
 # Add start.sh
 ADD metfrag-start.sh /start.sh
