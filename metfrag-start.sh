@@ -1,8 +1,5 @@
 #!/bin/sh
 
-#USER tomcat7
-#GROUP tomcat7
-
 # Environment variables needed by catalina.sh
 export CATALINA_HOME="/usr/share/tomcat7"
 export CATALINA_BASE="/var/lib/tomcat7"
@@ -16,16 +13,10 @@ export JSSE_HOME="${JAVA_HOME}/jre/lib/jsse.jar"
 # Workdir
 cd /usr/src/MetFragRelaunched
 
-# Load tomcat manually
-#mvn tomcat7:run-war-only -pl MetFragWeb
-
-# Build war file
-#mvn -Dmaven.repo.local= package -pl MetFragWeb
-#cp -r MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/MetFragWeb.war
-
 # Inject settings.properties
 cd /usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/
-jar uvf /var/lib/tomcat7/webapps/MetFragWeb.war resources/settings.properties
+cp /usr/src/MetFragRelaunched/MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/ROOT.war
+jar uvf /var/lib/tomcat7/webapps/ROOT.war resources/settings.properties
 
+# Start tomcat
 $CATALINA_SH run
-

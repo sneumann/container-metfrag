@@ -34,6 +34,10 @@ RUN git clone https://github.com/c-ruttkies/MetFragRelaunched
 WORKDIR /usr/src/MetFragRelaunched
 RUN mvn clean install -pl MetFragLib -am -DskipTests
 RUN mvn package -pl MetFragWeb
+RUN chown -R tomcat7:tomcat7 /var/lib/tomcat7
+
+# Add start.sh
+ADD metfrag-start.sh /start.sh
 
 # Run as user tomcat7
 USER tomcat7
