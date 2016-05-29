@@ -7,7 +7,7 @@ export CATALINA_PID="/var/run/tomcat7.pid"
 export CATALINA_SH="${CATALINA_HOME}/bin/catalina.sh"
 export CATALINA_TMPDIR="/tmp/tomcat7"
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
-export JAVA_OPTS="-Djava.awt.headless=true -Xmx128M"
+export JAVA_OPTS="-Djava.awt.headless=true -Xms2048m -Xmx4096m -XX:PermSize=1024m -XX:MaxPermSize=3072m"
 export JSSE_HOME="${JAVA_HOME}/jre/lib/jsse.jar"
 
 # Workdir
