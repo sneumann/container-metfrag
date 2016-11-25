@@ -27,8 +27,9 @@ VOL="-v $PWD/settings.properties:/usr/src/MetFragRelaunched/MetFragWeb/src/main/
 cp /vol/metfragweb/settings.properties .
 
 # Run docker
-docker run -i -t -d -p ${PORT_PUB}:${PORT_DOCKER} $VOL $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --name="$(echo ${NAME} | sed -e 's/.*\///')-run" $NAME
-
+#docker run -i -t -d -p ${PORT_PUB}:${PORT_DOCKER} $VOL $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --name="$(echo ${NAME} | sed -e 's/.*\///')-run" $NAME
+docker-compose -f docker-compose.yaml up -d
+docker-compose scale metfrag=2
 
 
 # Detach/Attach docker
