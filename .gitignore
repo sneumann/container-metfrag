@@ -1,0 +1,7 @@
+# files with private configuration
+settings.properties
+
+# Editor backup files:
+*~
+
+

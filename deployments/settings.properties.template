@@ -1,0 +1,23 @@
+#define chemspider token
+ChemSpiderToken = ........-....-....-....-............
+NumberThreads = 1
+UseSmiles = True
+MetFragCandidateWriter = XLS
+FeedbackEmailTo = you@example.com
+FeedbackEmailHost = mail.example.com
+PubChemProxyServer = www-cache.example.com
+PubChemProxyPort = 3128
+MoNAProxyServer = www-cache.example.com
+MoNAProxyPort = 3128
+KeggProxyServer = www-cache.example.com
+KeggProxyPort = 3128
+MetaCycProxyServer = www-cache.example.com
+MetaCycProxyPort = 3128
+# metchem database settings
+LocalMetChemDatabase=metchem 
+LocalMetChemDatabasePortNumber=5432 
+LocalMetChemDatabaseServerIp=metchem-postgres-postgresql.default.svc.cluster.local
+LocalMetChemDatabaseUser=metchemro 
+LocalMetChemDatabasePassword=metchemro
+# local database file folder
+LocalDatabasesFolderForWeb = /vol/file_databases
