@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metfrag-deployment
+  labels:
+    app: metfrag
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: metfrag
+  template:
+    metadata:
+      labels:
+        app: metfrag
+    spec:
+      containers:
+      - name: metfrag
+        image: korseby/metfrag
+        volumeMounts:
+          - name: metfrag-settings
+            mountPath: "/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/"
+            readOnly: false
+        ports:
+        - containerPort: 8080
+      volumes:
+        - name: metfrag-settings
+          configMap:
+             name: metfrag-settings
+             items:
+              - key: settings.properties
+                path: settings.properties
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: metfrag-service
+  annotations:
+    traefik.ingress.kubernetes.io/affinity: "true"
+  labels:
+    app: metfrag
+spec:
+  selector:
+    app: metfrag
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: metfrag-traefik
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - host: metfrag.129.70.51.43.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: metfrag-service
+          servicePort: 80
+        path: /
+
