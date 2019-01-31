@@ -19,12 +19,7 @@ cd /usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/
 #jar uvf /var/lib/tomcat7/webapps/ROOT.war resources/settings.properties
 
 cp /usr/src/MetFragRelaunched/MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/MetFragK8S.war
-
-cd /var/lib/tomcat7/webapps/
-mkdir MetFragK8S
-chown tomcat7 MetFragK8S
-cd MetFragK8S
-jar uvf /usr/src/MetFragRelaunched/MetFragWeb/target/MetFragWeb.war resources/settings.properties
+jar uvf /var/lib/tomcat7/webapps/MetFragK8S.war resources/settings.properties
 
 # Start tomcat
 $CATALINA_SH run
