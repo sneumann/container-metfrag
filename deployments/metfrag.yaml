@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: metfrag
-        image: korseby/metfrag
+        image: sneumann/metfrag
         volumeMounts:
           - name: metfrag-settings
             mountPath: "/usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/resources/"
@@ -59,11 +59,11 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: metfrag.129.70.51.43.nip.io
+  - host: metfrag.10.22.12.2.nip.io
     http:
       paths:
       - backend:
           serviceName: metfrag-service
           servicePort: 80
-        path: /
+        path: /MetFragK8S/
 
