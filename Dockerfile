@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 MAINTAINER Kristian Peters <kpeters@ipb-halle.de>
 
@@ -8,7 +8,7 @@ LABEL Description="MetFrag is a tool for in-silico fragmentation for computer as
 RUN apt-get -y update
 RUN apt-get -y install apt-transport-https
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-RUN echo "deb https://mirrors.ebi.ac.uk/CRAN/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
+#RUN echo "deb https://mirrors.ebi.ac.uk/CRAN/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
 
 # Update & upgrade sources
 RUN apt-get -y update
@@ -18,7 +18,7 @@ RUN apt-get -y dist-upgrade
 RUN apt-get -y install r-base netcdf-bin libnetcdf-dev libdigest-sha-perl git wget
 
 # Install development files needed
-RUN apt-get -y install git maven openjdk-7-jdk openjdk-7-jre tomcat7
+RUN apt-get -y install git maven openjdk-8-jdk openjdk-8-jre tomcat7
 
 # Clean up
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /tmp/* /var/tmp/*
