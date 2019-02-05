@@ -28,7 +28,7 @@ RUN rm -rf /var/lib/tomcat7/webapps/*
 
 # Fetch MetFrag
 WORKDIR /usr/src
-RUN git clone --depth 1 https://github.com/ipb-halle/MetFragRelaunched
+RUN git clone https://github.com/ipb-halle/MetFragRelaunched
 
 # Build MetFrag
 WORKDIR /usr/src/MetFragRelaunched
