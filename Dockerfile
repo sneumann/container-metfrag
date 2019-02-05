@@ -28,12 +28,10 @@ RUN rm -rf /var/lib/tomcat7/webapps/*
 
 # Fetch MetFrag
 WORKDIR /usr/src
-RUN git clone https://github.com/ipb-halle/MetFragRelaunched
+RUN git clone --depth 1 https://github.com/ipb-halle/MetFragRelaunched
 
 # Build MetFrag
 WORKDIR /usr/src/MetFragRelaunched
-#RUN git checkout 08fbdc1c718ce08d7522b168d28b74ab539e14e5
-RUN git checkout 283ea5f2578a9e23c284b111a91bb4bdd96a895a
 RUN mvn clean install -pl MetFragLib -am -DskipTests
 RUN mvn package -pl MetFragWeb
 
