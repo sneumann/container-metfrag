@@ -44,6 +44,10 @@ RUN chown -R tomcat7:tomcat7 /usr/share/tomcat7/
 # Add start.sh
 ADD metfrag-start.sh /start.sh
 
+# Add file databases 
+WORKDIR /
+RUN wget -O- https://msbi.ipb-halle.de/~sneumann/file_databases.tgz | tar xzf - 
+
 # Run as user tomcat7
 USER tomcat7
 
