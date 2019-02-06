@@ -23,6 +23,13 @@ spec:
             readOnly: false
         ports:
         - containerPort: 8080
+      resources:
+        limits:
+          cpu: "8"
+          memory: 16G
+        requests:
+          cpu: "4"
+          memory: 8G
       volumes:
         - name: metfrag-settings
           configMap:
