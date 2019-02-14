@@ -41,7 +41,8 @@ RUN chown -R tomcat7:tomcat7 /tmp/tomcat7
 RUN chown -R tomcat7:tomcat7 /var/lib/tomcat7
 RUN chown -R tomcat7:tomcat7 /usr/share/tomcat7/
 
-# Add start.sh
+# Add start.sh. WAR Filename (and hence web path!) can be changed through environment Variable
+ENV WEBPREFIX=MetFragK8S
 ADD metfrag-start.sh /start.sh
 
 # Add file databases 
