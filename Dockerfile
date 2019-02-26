@@ -49,6 +49,9 @@ ADD metfrag-start.sh /start.sh
 WORKDIR /
 RUN wget -O- https://msbi.ipb-halle.de/~sneumann/file_databases.tgz | tar xzf - 
 
+## Raise -Xmx for tomcat against java.lang.OutOfMemoryError: Java heap space
+RUN sed -i 's/^JAVA_OPTS="-Djava.awt.headless=true -Xmx128m -XX:+UseConcMarkSweepGC"/JAVA_OPTS="-Djava.awt.headless=true -Xmx512m -XX:+UseConcMarkSweepGC"/' /etc/default/tomcat7
+
 # Run as user tomcat7
 USER tomcat7
 
