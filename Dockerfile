@@ -46,6 +46,7 @@ ENV WEBPREFIX=MetFragK8S
 ADD metfrag-start.sh /start.sh
 
 # Add file databases 
+WORKDIR /tmp
 WORKDIR /
 RUN wget -O- https://msbi.ipb-halle.de/~sneumann/file_databases.tgz | tar xzf - 
 
