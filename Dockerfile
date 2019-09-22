@@ -55,6 +55,7 @@ WORKDIR /vol/file_databases
 RUN wget https://zenodo.org/record/3375500/files/HMDB4_23Aug19.csv
 RUN wget https://zenodo.org/record/3403530/files/WormJam_10Sept19.csv
 RUN wget https://zenodo.org/record/3434579/files/YMDB2_17Sept2019.csv
+RUN wget https://zenodo.org/record/3457554/files/Zebrafish_22Sept19_Beta.csv
 
 ## Raise -Xmx for tomcat against java.lang.OutOfMemoryError: Java heap space
 RUN sed -i 's/^JAVA_OPTS="-Djava.awt.headless=true -Xmx128m -XX:+UseConcMarkSweepGC"/JAVA_OPTS="-Djava.awt.headless=true -Xmx512m -XX:+UseConcMarkSweepGC"/' /etc/default/tomcat7
