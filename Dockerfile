@@ -55,7 +55,7 @@ WORKDIR /vol/file_databases
 RUN wget https://zenodo.org/record/3375500/files/HMDB4_23Aug19.csv
 RUN wget https://zenodo.org/record/3403530/files/WormJam_10Sept19.csv
 RUN wget https://zenodo.org/record/3434579/files/YMDB2_17Sept2019.csv
-RUN wget https://zenodo.org/record/3457554/files/Zebrafish_22Sept19_Beta.csv
+RUN wget https://zenodo.org/record/3541624/files/Zebrafish_13Nov2019_Beta.csv
 RUN wget https://zenodo.org/record/3472781/files/CompTox_07March19_WWMetaData.csv
 RUN wget https://zenodo.org/record/3520106/files/NPAtlas_Aug2019.csv
 RUN wget https://zenodo.org/record/3520132/files/NORMANSusDat_22Oct2019.csv
