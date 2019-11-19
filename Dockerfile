@@ -29,7 +29,6 @@ RUN rm -rf /var/lib/tomcat7/webapps/*
 # Fetch MetFrag
 WORKDIR /usr/src
 RUN git clone --depth 1 https://github.com/ipb-halle/MetFragRelaunched
-RUN git checkout 08fbdc1c718ce08d7522b168d28b74ab539e14e5
 
 # Build MetFrag
 WORKDIR /usr/src/MetFragRelaunched
@@ -42,12 +41,28 @@ RUN chown -R tomcat7:tomcat7 /tmp/tomcat7
 RUN chown -R tomcat7:tomcat7 /var/lib/tomcat7
 RUN chown -R tomcat7:tomcat7 /usr/share/tomcat7/
 
-# Add start.sh
+# Add start.sh. WAR Filename (and hence web path!) can be changed through environment Variable
+ENV WEBPREFIX=MetFragK8S
 ADD metfrag-start.sh /start.sh
 
 # Add file databases 
 WORKDIR /
 RUN wget -O- https://msbi.ipb-halle.de/~sneumann/file_databases.tgz | tar xzf - 
+
+## Collect additional files
+WORKDIR /vol/file_databases
+# HMDB4.0 MetFrag Local CSV
+RUN wget https://zenodo.org/record/3375500/files/HMDB4_23Aug19.csv
+RUN wget https://zenodo.org/record/3403530/files/WormJam_10Sept19.csv
+RUN wget https://zenodo.org/record/3434579/files/YMDB2_17Sept2019.csv
+RUN wget https://zenodo.org/record/3541624/files/Zebrafish_13Nov2019_Beta.csv
+RUN wget https://zenodo.org/record/3472781/files/CompTox_07March19_WWMetaData.csv
+RUN wget https://zenodo.org/record/3520106/files/NPAtlas_Aug2019.csv
+RUN wget https://zenodo.org/record/3520132/files/NORMANSusDat_22Oct2019.csv
+RUN wget https://zenodo.org/record/3547718/files/COCONUT4MetFrag.csv
+
+## Raise -Xmx for tomcat against java.lang.OutOfMemoryError: Java heap space
+RUN sed -i 's/^JAVA_OPTS="-Djava.awt.headless=true -Xmx128m -XX:+UseConcMarkSweepGC"/JAVA_OPTS="-Djava.awt.headless=true -Xmx512m -XX:+UseConcMarkSweepGC"/' /etc/default/tomcat7
 
 # Run as user tomcat7
 USER tomcat7
