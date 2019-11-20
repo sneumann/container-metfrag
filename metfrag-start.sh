@@ -18,8 +18,8 @@ cd /usr/src/MetFragRelaunched/MetFragWeb/src/main/webapp/
 #cp /usr/src/MetFragRelaunched/MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/ROOT.war
 #jar uvf /var/lib/tomcat7/webapps/ROOT.war resources/settings.properties
 
-cp /usr/src/MetFragRelaunched/MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/MetFragK8S.war
-jar uvf /var/lib/tomcat7/webapps/MetFragK8S.war resources/settings.properties
+cp /usr/src/MetFragRelaunched/MetFragWeb/target/MetFragWeb.war /var/lib/tomcat7/webapps/${WEBPREFIX}.war
+jar uvf /var/lib/tomcat7/webapps/${WEBPREFIX}.war resources/settings.properties
 
 # Start tomcat
 $CATALINA_SH run
