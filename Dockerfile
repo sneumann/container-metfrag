@@ -60,8 +60,8 @@ RUN wget https://zenodo.org/record/3472781/files/CompTox_07March19_WWMetaData.cs
 RUN wget https://zenodo.org/record/3520106/files/NPAtlas_Aug2019.csv
 RUN wget https://zenodo.org/record/3548461/files/NORMANSusDat_20Nov2019.csv
 RUN wget https://zenodo.org/record/3547718/files/COCONUT4MetFrag.csv
-RUN wget https://zenodo.org/record/3548654/files/PubChemLite_18Nov2019_tier0.csv
-RUN wget https://zenodo.org/record/3548654/files/PubChemLite_18Nov2019_tier1.csv
+RUN wget https://zenodo.org/record/3611238/files/PubChemLite_14Jan2020_tier0.csv
+RUN wget https://zenodo.org/record/3611238/files/PubChemLite_14Jan2020_tier1.csv
 RUN wget https://zenodo.org/record/3564602/files/BloodExposomeDB_03Dec2019.csv
 
 ## Raise -Xmx for tomcat against java.lang.OutOfMemoryError: Java heap space
