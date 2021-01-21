@@ -74,5 +74,5 @@ USER tomcat7
 EXPOSE 8080
 
 # Define Entry point script
-ENTRYPOINT ["/bin/sh","/start.sh"]
+ENTRYPOINT ["/bin/sh", "/start.sh"]
 
